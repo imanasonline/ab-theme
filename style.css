@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.11.0
+Version: 0.12.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -1490,4 +1490,132 @@ img {
 
 @media (max-width: 640px) {
   .reviews-wall { columns: 1; }
+}
+
+/* ============================================================
+   HOMEPAGE — SECTION 9: PRICING (template-parts/home/pricing.php)
+   Ek safed bara container, andar 3 columns; dayein wala
+   (Authority) halka neela inset panel hai.
+   ============================================================ */
+.pricing-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.05fr;
+  gap: clamp(2rem, 4.5vw, 3.6rem);
+  margin-top: 3rem;
+  background: #fff;
+  border: 1px solid #d6e6f2;
+  border-radius: 9px;
+  box-shadow: var(--shadow-card);
+  padding: clamp(1.9rem, 4vw, 3.1rem);
+}
+
+.price-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dayein wala numaya panel — dabbe ke andar halki rim ke sath */
+.price-col--featured {
+  background: #edf3f8;
+  border: 1px solid #cfe0ee;
+  border-radius: 8px;
+  padding: 2.1rem 1.9rem;
+  margin: -1.15rem -1.15rem -1.15rem 0;
+}
+
+/* Chhota browser-window wala icon */
+.price-col__icon {
+  display: flex;
+  flex-direction: column;
+  width: 46px;
+  height: 40px;
+  border: 1.8px solid var(--color-blue);
+  border-radius: 6px;
+  color: var(--color-blue);
+  overflow: hidden;
+  margin-bottom: 1.1rem;
+}
+
+.price-col__iconbar {
+  display: block;
+  height: 8px;
+  border-bottom: 1.8px solid var(--color-blue);
+  background: var(--color-tint-blue);
+}
+
+.price-col__icon svg {
+  width: 19px;
+  height: 19px;
+  margin: auto;
+}
+
+.price-col__name {
+  font-size: 1.22rem; /* ~19.5px */
+  margin-bottom: 0.4rem;
+}
+
+.price-col__price {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 2.3rem; /* ~37px */
+  color: var(--color-navy);
+  margin: 0 0 0.5rem;
+}
+
+.price-col__tagline {
+  margin: 0;
+  color: #3c4e64;
+}
+
+.price-col__rule {
+  border: 0;
+  border-top: 1px solid #d6e6f2;
+  margin: 1.3rem 0;
+}
+
+.price-col__listhead {
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0 0 0.9rem;
+}
+
+.price-col__list {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.price-col__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: #33475b;
+  font-size: 0.98rem;
+}
+
+.price-col__check {
+  flex: 0 0 auto;
+  color: var(--color-blue);
+  margin-top: 0.12rem;
+}
+
+.price-col__check svg { width: 19px; height: 19px; display: block; }
+
+.price-col__turn {
+  font-weight: 600;
+  color: var(--color-navy);
+  margin: 0 0 1.4rem;
+}
+
+.price-col__btn {
+  margin-top: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .pricing-box { grid-template-columns: 1fr; }
+  .price-col--featured { margin: 0; }
 }
