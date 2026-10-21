@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<a class="btn btn-primary site-header__cta" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-			<?php esc_html_e( 'Get a Free Quote', 'ab-theme' ); ?>
+			<?php esc_html_e( 'Start Your Project', 'ab-theme' ); ?>
 		</a>
 	</div>
 </header>
