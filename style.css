@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.17.0
+Version: 0.17.1
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -171,13 +171,16 @@ img {
 
 /* Site bhar mein button ki ek hi zuban: neela vertical
    gradient; hover par hara gradient + halka lift
-   (code-verified). Live buttons bilkul FLAT hain — koi
-   border/shadow NAHI (naap 2026-10-21); shadow pehle
-   "border jaisi line" ban kar nazar ati thi, is liye
-   khatam kar di gayi hai. */
+   (code-verified). Live buttons par BAHIR koi shadow
+   NAHI hai, lekin kinaron ke ANDAR ek bevel finishing
+   hai (pixel naap 2026-10-21: upar ~2px gehra kinara,
+   neeche ~2px halka kinara) — wahi inset shadows se
+   banayi gayi hai. Asal CSS rule band mili (Customizer
+   ke andar), is liye ye naap-shuda takhmeena hai. */
 .btn-primary {
   background: var(--gradient-btn);
   color: #fff;
+  box-shadow: inset 0 2px 0 rgba(9, 45, 120, 0.35), inset 0 -2px 0 rgba(165, 200, 255, 0.45);
   transition: transform 0.25s var(--ease-out);
 }
 
@@ -529,6 +532,7 @@ img {
   background: var(--gradient-btn); /* code-verified neela gradient */
   color: #fff;
   text-decoration: none;
+  box-shadow: inset 0 2px 0 rgba(9, 45, 120, 0.35), inset 0 -2px 0 rgba(165, 200, 255, 0.45); /* live wali andar ki bevel finishing */
   transition: transform 0.25s var(--ease-out);
 }
 
@@ -1968,7 +1972,7 @@ img {
   margin-bottom: 2.2rem;
 }
 
-/* Icon-only chokor gradient button (live ~62 x 58px, flat) */
+/* Icon-only chokor gradient button (live ~62 x 58px) */
 .final-cta__btn {
   display: inline-grid;
   place-items: center;
@@ -1977,6 +1981,7 @@ img {
   border-radius: 9px;
   background: var(--gradient-btn);
   color: #fff;
+  box-shadow: inset 0 2px 0 rgba(9, 45, 120, 0.35), inset 0 -2px 0 rgba(165, 200, 255, 0.45); /* live wali bevel finishing */
   transition: transform var(--duration-base) var(--ease-out);
 }
 
