@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.3.0
+Version: 0.3.1
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -389,26 +389,28 @@ img {
 }
 
 /* ---------- Rotating showcase ---------- */
-.showcase__track { position: relative; }
+.showcase__track {
+  position: relative;
+  height: 24.5rem; /* saari slides ki ek hi unchai — badalte waqt overlap nahi */
+}
 
 .showcase__slide {
   position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
+  inset: 0;
   opacity: 0;
-  transform: translateX(26px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition: opacity 0.55s ease;
   pointer-events: none;
 }
 
 .showcase__slide.is-active {
-  position: relative;
   opacity: 1;
-  transform: none;
   pointer-events: auto;
 }
 
 .browser-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid #d8e2ee;
   border-radius: var(--radius);
   overflow: hidden;
@@ -451,6 +453,12 @@ img {
 .frame-tab svg { width: 11px; height: 11px; }
 
 /* Frame ke andar wali chhoti sample site */
+.mini-site {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .mini-topbar {
   display: flex;
   align-items: center;
@@ -532,6 +540,7 @@ img {
 }
 
 .mini-strip {
+  margin-top: auto; /* hamesha frame ke bilkul neeche */
   padding: 8px;
   background: var(--color-navy);
   color: #fff;
@@ -578,4 +587,11 @@ img {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__sub { max-width: none; }
   .mini-nav { display: none; }
+  .showcase__track { height: 24rem; }
+}
+
+@media (max-width: 540px) {
+  .showcase__track { height: 27.5rem; }
+  .mini-row { gap: 8px; padding: 12px; }
+  .mini-banner { padding: 20px; }
 }
