@@ -7,9 +7,9 @@
  * har section apni template part mein (template-parts/home/).
  *
  * Tartib (Basit ki live site wali):
- *  1. Hero + rotating showcase   ← Phase 2, Step 1
- *  2. Trust strip                ← agla step
- *  3. ... baqi 11 sections isi tartib se
+ *  1. Hero + rotating showcase   ← Phase 2, Step 1 ✅
+ *  2. Trust strip                ← Phase 2, Step 2
+ *  3. ... baqi sections isi tartib se
  *
  * @package AB_Theme
  */
@@ -21,5 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 get_template_part( 'template-parts/home/hero' );
+
+get_template_part( 'template-parts/home/trust-strip' );
 
 get_footer();

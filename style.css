@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.3.4
+Version: 0.4.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -681,4 +681,47 @@ img {
   .showcase__track { height: 27.5rem; }
   .mini-row { gap: 8px; padding: 12px; }
   .mini-banner { padding: 20px; }
+}
+
+/* ============================================================
+   HOMEPAGE — SECTION 2: TRUST STRIP (template-parts/home/trust-strip.php)
+   Hero ke neeche patli navy patti, 3 checkmark items.
+   ============================================================ */
+.trust-strip {
+  background: var(--color-navy);
+  padding: 1.125rem 0; /* ~18px — live naap */
+}
+
+.trust-strip__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  font-size: 1.125rem; /* ~18px */
+  font-weight: 600;
+}
+
+.trust-strip__icon {
+  flex: none;
+  display: inline-flex;
+}
+
+.trust-strip__icon svg { width: 24px; height: 24px; }
+
+@media (max-width: 720px) {
+  .trust-strip__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
 }
