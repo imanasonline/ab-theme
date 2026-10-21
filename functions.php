@@ -42,7 +42,7 @@ function ab_enqueue_assets() {
 	// Live site ke fonts (Anas ke code-check se confirm): headings Inter, body Montserrat.
 	wp_enqueue_style(
 		'ab-fonts',
-		'https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap',
 		array(),
 		null
 	);
