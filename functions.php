@@ -45,5 +45,19 @@ function ab_enqueue_assets() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	// Hero showcase ki rotation — sirf homepage par, defer ke saath.
+	if ( is_front_page() ) {
+		wp_enqueue_script(
+			'ab-hero-showcase',
+			get_template_directory_uri() . '/assets/js/hero-showcase.js',
+			array(),
+			wp_get_theme()->get( 'Version' ),
+			array(
+				'strategy'  => 'defer',
+				'in_footer' => true,
+			)
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ab_enqueue_assets' );
