@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.9.0
+Version: 0.9.1
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -40,11 +40,12 @@ Text Domain: ab-theme
   /* Brand gradient — sirf headline ke khaas alfaaz ke liye
      (live naap: neela -> teal) */
   --gradient-brand: linear-gradient(90deg, #2b6bf0, #1fc2a5);
-  /* Buttons ka gradient — live focused check 2026-10-21:
-     vertical, upar halka asmani → neeche gehra royal blue.
-     Hover par solid emerald green (neeche wala token). */
-  --gradient-btn: linear-gradient(180deg, #35a2f7, #0b6ceb);
-  --color-hover: #10b981;
+  /* Buttons ka gradient — CODE-VERIFIED (Anas ne khud live
+     site ke DevTools se nikala, 2026-10-21): normal neela
+     gradient, hover par HARA gradient. Dono 180deg. */
+  --gradient-btn: linear-gradient(180deg, #398bff, #0059d7);
+  --gradient-btn-hover: linear-gradient(180deg, #0ad88f, #00b37e);
+  --color-hover: #00b37e;
 
   /* Fonts — live site (Anas ke code-check se confirm):
      headings = Inter, body = Montserrat */
@@ -152,20 +153,20 @@ img {
 }
 
 /* Site bhar mein button ki ek hi zuban: neela vertical
-   gradient; hover par solid emerald green + halka lift
-   (live focused check 2026-10-21 — har button ek jaisa) */
+   gradient; hover par hara gradient + halka lift
+   (code-verified — har button ek jaisa) */
 .btn-primary {
   background: var(--gradient-btn);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(11, 108, 235, 0.32);
+  box-shadow: 0 10px 24px rgba(0, 89, 215, 0.32);
   transition: background-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out);
 }
 
 .btn-primary:hover {
-  background: var(--color-hover);
+  background: var(--gradient-btn-hover);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.38);
+  box-shadow: 0 14px 28px rgba(0, 179, 126, 0.38);
 }
 
 .btn-primary:active { transform: translateY(0) scale(0.98); }
@@ -413,17 +414,17 @@ img {
   min-height: 4.06rem; /* ~65px */
   padding: 0.5rem 1.1rem;
   border-radius: 8px;
-  background: var(--gradient-btn); /* live wala neela vertical gradient */
+  background: var(--gradient-btn); /* code-verified neela gradient */
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 10px 24px rgba(11, 108, 235, 0.3);
+  box-shadow: 0 10px 24px rgba(0, 89, 215, 0.3);
   transition: background-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 
 .btn-call:hover {
-  background: var(--color-hover); /* live: hover par solid emerald green */
+  background: var(--gradient-btn-hover); /* code-verified: hover par hara gradient */
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.38);
+  box-shadow: 0 14px 28px rgba(0, 179, 126, 0.38);
   color: #fff;
 }
 
