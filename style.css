@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.5.0
+Version: 0.6.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -784,4 +784,102 @@ img {
 
 @media (max-width: 860px) {
   .pain-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   HOMEPAGE — SECTION 4: BENEFITS (template-parts/home/benefits.php)
+   ============================================================ */
+.benefits__grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr; /* photo ~40% / text ~60% */
+  gap: clamp(2.5rem, 6vw, 5.6rem); /* live naap ~90px */
+  align-items: start;
+}
+
+/* Photo ki jagah — asal photo aane tak placeholder.
+   Naap live wali: portrait ~530×605, radius ~9px. */
+.benefits__media {
+  aspect-ratio: 53 / 60;
+  border-radius: 9px;
+  border: 1px solid var(--color-border);
+  background: linear-gradient(160deg, var(--color-tint-blue), var(--color-tint-green));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.benefits__media-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--color-blue);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.9rem;
+}
+
+.benefits__media-note {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.benefits__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.375rem); /* ~38px */
+  margin-bottom: 2rem;
+}
+
+.benefits__list {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.benefit {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.benefit__icon {
+  flex: 0 0 auto;
+  color: var(--color-blue);
+  margin-top: 0.1rem;
+}
+
+.benefit__icon svg { width: 30px; height: 30px; }
+
+.benefit__text h3 {
+  font-size: 1.125rem; /* ~18px */
+  margin-bottom: 0.35rem;
+}
+
+.benefit__text p {
+  margin: 0;
+  color: #3c4e64;
+}
+
+.benefits__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* live naap ~12px */
+  margin-top: 2.1rem;
+}
+
+.btn--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.btn--icon svg { width: 20px; height: 20px; flex: 0 0 auto; }
+
+@media (max-width: 860px) {
+  .benefits__grid { grid-template-columns: 1fr; }
+  .benefits__media { max-width: 420px; }
 }
