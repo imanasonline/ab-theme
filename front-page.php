@@ -15,8 +15,9 @@
  *  6. Featured testimonial       ← Phase 2, Step 6 ✅
  *  7. Services                   ← Phase 2, Step 7 ✅
  *  8. Review wall                ← Phase 2, Step 8 ✅
- *  9. Pricing                    ← Phase 2, Step 9
- *  10. ... baqi sections isi tartib se
+ *  9. Pricing                    ← Phase 2, Step 9 ✅
+ *  10. Process                   ← Phase 2, Step 10
+ *  11. ... baqi sections isi tartib se
  *
  * @package AB_Theme
  */
@@ -44,5 +45,7 @@ get_template_part( 'template-parts/home/services' );
 get_template_part( 'template-parts/home/review-wall' );
 
 get_template_part( 'template-parts/home/pricing' );
+
+get_template_part( 'template-parts/home/process' );
 
 get_footer();
