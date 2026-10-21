@@ -39,10 +39,10 @@ add_action( 'after_setup_theme', 'ab_theme_setup' );
  * Koi extra library nahi: speed pehle.
  */
 function ab_enqueue_assets() {
-	// Poppins — live site ka font (400/600/700/800).
+	// Live site ke fonts (code se confirm): Inter (body) + Montserrat (headings).
 	wp_enqueue_style(
 		'ab-fonts',
-		'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap',
 		array(),
 		null
 	);
