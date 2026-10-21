@@ -10,8 +10,9 @@
  *  1. Hero + rotating showcase   ← Phase 2, Step 1 ✅
  *  2. Trust strip                ← Phase 2, Step 2 ✅
  *  3. Pain points                ← Phase 2, Step 3 ✅
- *  4. Benefits                   ← Phase 2, Step 4
- *  5. ... baqi sections isi tartib se
+ *  4. Benefits                   ← Phase 2, Step 4 ✅
+ *  5. Portfolio preview          ← Phase 2, Step 5
+ *  6. ... baqi sections isi tartib se
  *
  * @package AB_Theme
  */
@@ -29,5 +30,7 @@ get_template_part( 'template-parts/home/trust-strip' );
 get_template_part( 'template-parts/home/pain-points' );
 
 get_template_part( 'template-parts/home/benefits' );
+
+get_template_part( 'template-parts/home/work-preview' );
 
 get_footer();

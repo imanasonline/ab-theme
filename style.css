@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.7.0
+Version: 0.8.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -935,4 +935,196 @@ img {
   .pain-card:hover,
   .btn-primary:hover,
   .btn-call:hover { transform: none; }
+}
+
+/* ============================================================
+   HOMEPAGE — SECTION 5: PORTFOLIO PREVIEW
+   (template-parts/home/work-preview.php)
+   Browser-frame cards — yehi design Portfolio page par
+   bhi reuse hoga. Quality standard: do-layer shadows,
+   hover par lift + screenshot scroll.
+   ============================================================ */
+.work__rule {
+  border: 0;
+  border-top: 1px solid #dbe6f2;
+  margin: 1.75rem auto;
+}
+
+.work__lead {
+  text-align: center;
+  max-width: 68rem;
+  margin: 0 auto;
+  color: #3c4e64;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem; /* live naap ~22px */
+  margin-top: 2.75rem;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #d8e2ee;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Card ki top bar — safed, rangdaar dots (hero frame wale
+   .frame-dot classes hi reuse hoti hain) + grey pill tab */
+.work-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  background: #fff;
+  border-bottom: 1px solid #e6edf5;
+}
+
+.work-card__tab {
+  flex: 1;
+  margin-left: 10px;
+  padding: 4px 12px;
+  background: #f0f3f5;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  color: #5b6b7f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Screenshot wali jagah — andar lambi sample site, hover
+   par ahista upar scroll (live site wali harkat) */
+.work-card__shot {
+  display: block;
+  aspect-ratio: 45 / 39;
+  overflow: hidden;
+  background: #f7fafc;
+}
+
+.work-shot {
+  display: flex;
+  flex-direction: column;
+  height: 205%;
+  transition: transform 4.5s var(--ease-out);
+}
+
+.work-card:hover .work-shot { transform: translateY(-49%); }
+
+.work-shot__topbar {
+  padding: 12px 18px;
+  background: var(--shot);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.work-shot__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 22px;
+  background: #eef4fa;
+}
+
+.work-shot__line {
+  display: block;
+  height: 13px;
+  border-radius: 6px;
+  background: #b8c9dd;
+}
+
+.work-shot__line--lg { width: 72%; height: 17px; background: #8fa9c4; }
+.work-shot__line--md { width: 48%; }
+
+.work-shot__pill {
+  display: block;
+  width: 92px;
+  height: 26px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--shot);
+}
+
+.work-shot__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 18px 22px;
+}
+
+.work-shot__cell {
+  display: block;
+  height: 74px;
+  border-radius: 8px;
+  background: #e3ecf5;
+}
+
+.work-shot__band {
+  display: block;
+  height: 54px;
+  background: var(--shot);
+  opacity: 0.88;
+}
+
+/* Card ki neeche wali navy patti — naam dayein taraf */
+.work-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  background: #0a2e4d; /* live naap */
+  margin-top: auto;
+}
+
+.work-card__name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.work-card__go {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0a2e4d;
+}
+
+.work-card__go svg { width: 11px; height: 11px; }
+
+.work__cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .work-card { max-width: 480px; margin-inline: auto; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card { transition: none; }
+  .work-card:hover { transform: none; }
+  .work-shot { transition: none; }
+  .work-card:hover .work-shot { transform: none; }
 }
