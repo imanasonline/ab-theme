@@ -18,7 +18,7 @@ get_header();
 
 <section class="container" style="padding-top: var(--section-pad); padding-bottom: var(--section-pad); text-align: center;">
 	<p style="color: var(--color-green-dark); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: var(--fs-small);">
-		<?php esc_html_e( 'AB Custom Theme — Active (v0.15.0)', 'ab-theme' ); ?>
+		<?php esc_html_e( 'AB Custom Theme — Active (v0.16.0)', 'ab-theme' ); ?>
 	</p>
 	<h1>
 		<?php esc_html_e( 'Theme ki bunyad', 'ab-theme' ); ?>

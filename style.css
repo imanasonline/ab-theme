@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.15.0
+Version: 0.16.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -295,55 +295,148 @@ img {
 }
 
 /* ============================================================
-   SITE FOOTER — gehra navy hissa: pehchan, menu, copyright
+   SITE FOOTER — gehra navy: tagline band, 3 columns, bottom bar
+   (focused live check 2026-10-21 ki naap)
    ============================================================ */
 .site-footer {
-  margin-top: var(--section-pad);
-  background: var(--color-navy);
-  color: #c9d6e4;
+  background: #03263d; /* live naap wala gehra navy */
+  color: #dce6f2;
+  padding-top: 2.4rem;
 }
 
-.site-footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-5);
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-top: var(--space-6);
-  padding-bottom: var(--space-6);
-}
-
-.site-footer__title {
-  display: block;
-  margin-bottom: var(--space-1);
-  font-size: 1.3rem;
+/* Upar wali centered tagline */
+.site-footer__band {
+  text-align: center;
+  font-family: var(--font-head);
   font-weight: 700;
+  font-size: 1.19rem; /* ~19px */
   color: #fff;
+  margin: 0 0 2rem;
 }
 
-.site-footer__tagline {
-  max-width: 22rem;
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 0.65fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-bottom: 1.6rem;
+}
+
+/* Photo avatar — asal photo content phase mein ayegi */
+.site-footer__avatar {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #33506e, #16283d);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.1rem;
+}
+
+.site-footer__avatar svg { width: 27px; height: 27px; }
+
+.site-footer__bio {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+  max-width: 27rem;
+}
+
+/* Hara underlined availability link (live ~#00D563) */
+.site-footer__available {
+  color: #00d563;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__available:hover { color: #2ee06f; }
+
+.site-footer__heading {
+  color: #fff;
+  font-size: 1.16rem; /* ~18.5px */
+  margin-bottom: 1.1rem;
+}
+
+.site-footer__links {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
 }
 
-.footer-nav__list a {
-  font-weight: 500;
-  color: #c9d6e4;
+.site-footer__links a {
+  color: #dce6f2;
   text-decoration: none;
 }
 
-.footer-nav__list a:hover { color: #fff; }
+.site-footer__links a:hover { color: #fff; }
 
+/* Neeche wali patti: copyright | legal | socials */
 .site-footer__bar {
-  padding-top: var(--space-3);
-  padding-bottom: var(--space-3);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 1.05rem 0 1.35rem;
 }
 
 .site-footer__copy {
   margin: 0;
-  font-size: var(--fs-small);
-  text-align: center;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__legal a {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.site-footer__legal a:hover { color: #00d563; }
+
+/* Safed chokor social buttons, andar navy icon */
+.site-footer__socials {
+  display: flex;
+  gap: 1.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__socials a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #fff;
+  color: #03263d;
+  transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) ease;
+}
+
+.site-footer__socials a:hover {
+  background: #00d563;
+  transform: translateY(-2px);
+}
+
+.site-footer__socials svg { width: 16px; height: 16px; }
+
+@media (max-width: 860px) {
+  .site-footer__cols { grid-template-columns: 1fr; }
+  .site-footer__bar { justify-content: center; text-align: center; }
 }
 
 /* ============================================================
