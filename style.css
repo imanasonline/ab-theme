@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.3.3
+Version: 0.3.4
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -26,8 +26,8 @@ Text Domain: ab-theme
   --color-navy-soft: #16324f;   /* dark sections ka dusra shade */
   --color-body: #33475b;        /* aam text */
   --color-muted: #5b6b7f;       /* halka text */
-  --color-blue: #2e6bff;        /* primary */
-  --color-green: #1fb981;       /* accent */
+  --color-blue: #2b6bf0;        /* primary — live naap */
+  --color-green: #1fc2a5;       /* accent — live naap */
   --color-green-dark: #12a150;  /* hover / gehra hara */
   --color-border: #e3eaf3;      /* card borders */
   --color-tint-blue: #eef4ff;   /* halka neela background */
@@ -36,11 +36,12 @@ Text Domain: ab-theme
   --color-bg-soft: #f5f8fc;
   --color-star: #f5a623;        /* rating stars */
 
-  /* Brand gradient (neela -> hara) */
-  --gradient-brand: linear-gradient(90deg, #2e6bff, #1fb981);
+  /* Brand gradient — sirf headline ke khaas alfaaz ke liye
+     (live naap: neela -> teal). Buttons solid neele hain. */
+  --gradient-brand: linear-gradient(90deg, #2b6bf0, #1fc2a5);
 
-  /* Fonts */
-  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  /* Fonts — poori live site par ek hi font: Poppins */
+  --font-sans: "Poppins", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
 
   /* Type scale */
   --fs-h1: clamp(2.3rem, 5vw, 3.6rem);
@@ -121,15 +122,17 @@ img {
 .btn {
   display: inline-block;
   padding: 0.85rem 1.9rem;
-  border-radius: 999px;
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   border: 2px solid transparent;
 }
 
+/* Site bhar mein button ki ek hi zuban: solid neela (live system) */
 .btn-primary {
-  background: var(--gradient-brand);
+  background: var(--color-blue);
   color: #fff;
+  box-shadow: 0 10px 24px rgba(43, 107, 240, 0.26);
 }
 
 .btn-outline {
@@ -141,12 +144,14 @@ img {
 /* ============================================================
    SITE HEADER — sticky patti: pehchan, menu, CTA
    ============================================================ */
+/* Live system: header ek tera hua (floating) safed card hai —
+   kinaron se andar, gol konay, halki border + shadow, sticky. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  padding-top: 0.9rem;
+  background: transparent;
 }
 
 /* Admin bar lagi ho to sticky header us ke neeche rahe */
@@ -159,19 +164,48 @@ img {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  padding-top: var(--space-3);
-  padding-bottom: var(--space-3);
+  min-height: 4.6rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--color-bg);
+  border: 1px solid #e5eaf1;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(10, 37, 64, 0.09);
 }
 
 .site-branding { margin-right: auto; }
 
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+/* Logo ki gol tasveer ki jagah — asal photo ane tak initials */
+.site-brand__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
 .site-title {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--color-navy);
   text-decoration: none;
 }
+
+/* Naam ka pehla hissa halka, baqi bold (live logo jaisa) */
+.site-title__light { font-weight: 400; }
 
 .site-branding .custom-logo {
   display: block;
@@ -189,17 +223,33 @@ img {
 }
 
 .main-nav__list a {
+  font-size: 0.875rem; /* ~14px */
   font-weight: 600;
-  color: var(--color-navy);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #3b4a63;
   text-decoration: none;
 }
 
-.main-nav__list a:hover { color: var(--color-blue); }
+.main-nav__list a:hover,
+.main-nav__list .current-menu-item > a,
+.main-nav__list .current_page_item > a { color: var(--color-blue); }
 
+/* Header CTA — hero buttons wali hi zuban: solid neela, ~8px radius */
 .site-header__cta {
-  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
+
+.site-header__cta svg { width: 15px; height: 15px; }
 
 @media (max-width: 720px) {
   .site-header__inner { flex-wrap: wrap; }
@@ -286,9 +336,9 @@ img {
   margin-bottom: 1.5rem; /* naap: headline ke neeche ~24px */
 }
 
-/* Hero ke gradient alfaaz — live naap wale rang */
+/* Hero ke gradient alfaaz — brand gradient (live naap) */
 .hero .text-gradient {
-  background-image: linear-gradient(90deg, #1d6ff2, #2bd7a1);
+  background-image: var(--gradient-brand);
 }
 
 .hero__sub {
@@ -326,17 +376,17 @@ img {
   gap: 0.8rem;
   min-height: 4.06rem; /* ~65px */
   padding: 0.5rem 1.1rem;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #1f6feb, #3d9bff); /* live naap: upar gehra, neeche halka neela */
+  border-radius: 8px;
+  background: var(--color-blue); /* solid neela — header CTA wali hi zuban */
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25);
+  box-shadow: 0 10px 24px rgba(43, 107, 240, 0.26);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-call:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(31, 111, 235, 0.3);
+  box-shadow: 0 14px 28px rgba(43, 107, 240, 0.32);
   color: #fff;
 }
 
