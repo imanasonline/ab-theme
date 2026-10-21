@@ -12,8 +12,9 @@
  *  3. Pain points                ← Phase 2, Step 3 ✅
  *  4. Benefits                   ← Phase 2, Step 4 ✅
  *  5. Portfolio preview          ← Phase 2, Step 5 ✅
- *  6. Featured testimonial       ← Phase 2, Step 6
- *  7. ... baqi sections isi tartib se
+ *  6. Featured testimonial       ← Phase 2, Step 6 ✅
+ *  7. Services                   ← Phase 2, Step 7
+ *  8. ... baqi sections isi tartib se
  *
  * @package AB_Theme
  */
@@ -35,5 +36,7 @@ get_template_part( 'template-parts/home/benefits' );
 get_template_part( 'template-parts/home/work-preview' );
 
 get_template_part( 'template-parts/home/featured-testimonial' );
+
+get_template_part( 'template-parts/home/services' );
 
 get_footer();
