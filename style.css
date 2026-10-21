@@ -6,7 +6,7 @@ Primary Branch: main
 Author: Muhammad Anas
 Author URI: https://github.com/imanasonline
 Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
-Version: 0.6.0
+Version: 0.6.1
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -40,6 +40,11 @@ Text Domain: ab-theme
   /* Brand gradient — sirf headline ke khaas alfaaz ke liye
      (live naap: neela -> teal). Buttons solid neele hain. */
   --gradient-brand: linear-gradient(90deg, #2b6bf0, #1fc2a5);
+  /* Buttons ka gradient — live focused check 2026-10-21:
+     vertical, upar halka asmani → neeche gehra royal blue.
+     Hover par solid emerald green (neeche wala token). */
+  --gradient-btn: linear-gradient(180deg, #35a2f7, #0b6ceb);
+  --color-hover: #10b981;
 
   /* Fonts — live site (Anas ke code-check se confirm):
      headings = Inter, body = Montserrat */
@@ -132,11 +137,21 @@ img {
   border: 2px solid transparent;
 }
 
-/* Site bhar mein button ki ek hi zuban: solid neela (live system) */
+/* Site bhar mein button ki ek hi zuban: neela vertical
+   gradient; hover par solid emerald green + halka lift
+   (live focused check 2026-10-21 — har button ek jaisa) */
 .btn-primary {
-  background: var(--color-blue);
+  background: var(--gradient-btn);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(43, 107, 240, 0.26);
+  box-shadow: 0 10px 24px rgba(11, 108, 235, 0.32);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.38);
 }
 
 .btn-outline {
@@ -382,16 +397,17 @@ img {
   min-height: 4.06rem; /* ~65px */
   padding: 0.5rem 1.1rem;
   border-radius: 8px;
-  background: var(--color-blue); /* solid neela — header CTA wali hi zuban */
+  background: var(--gradient-btn); /* live wala neela vertical gradient */
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 10px 24px rgba(43, 107, 240, 0.26);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 24px rgba(11, 108, 235, 0.3);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-call:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(43, 107, 240, 0.32);
+  background: var(--color-hover); /* live: hover par solid emerald green */
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.38);
   color: #fff;
 }
 

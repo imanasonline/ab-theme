@@ -73,11 +73,11 @@ $ab_benefits = array(
 			</div>
 
 			<div class="benefits__actions">
-				<a class="btn btn--primary btn--icon" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+				<a class="btn btn-primary btn--icon" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 					<?php echo $ab_plane; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG markup. ?>
 					<?php esc_html_e( 'Start Your Project', 'ab-theme' ); ?>
 				</a>
-				<a class="btn btn--primary btn--icon" href="#">
+				<a class="btn btn-primary btn--icon" href="#">
 					<?php esc_html_e( 'Discuss On WhatsApp', 'ab-theme' ); ?>
 					<?php echo $ab_chat; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG markup. ?>
 				</a>
