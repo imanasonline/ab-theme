@@ -1,0 +1,49 @@
+<?php
+/**
+ * AB Custom Theme — setup & assets
+ *
+ * @package AB_Theme
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Seedha access band.
+}
+
+/**
+ * Theme ki bunyadi sahulatain (supports) aur menus.
+ */
+function ab_theme_setup() {
+	load_theme_textdomain( 'ab-theme', get_template_directory() . '/languages' );
+
+	add_theme_support( 'title-tag' );            // <title> WordPress/plugin sambhale ga (SEO friendly)
+	add_theme_support( 'post-thumbnails' );      // featured images
+	add_theme_support( 'custom-logo' );          // Customizer se logo
+	add_theme_support( 'automatic-feed-links' ); // RSS
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support(
+		'html5',
+		array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' )
+	);
+
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Menu', 'ab-theme' ),
+			'footer'  => __( 'Footer Menu', 'ab-theme' ),
+		)
+	);
+}
+add_action( 'after_setup_theme', 'ab_theme_setup' );
+
+/**
+ * Sirf zaroori CSS load karo — style.css (tokens + base + components).
+ * Koi extra library nahi: speed pehle.
+ */
+function ab_enqueue_assets() {
+	wp_enqueue_style(
+		'ab-style',
+		get_stylesheet_uri(),
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ab_enqueue_assets' );

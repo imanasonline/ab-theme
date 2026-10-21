@@ -1,0 +1,259 @@
+/*
+Theme Name: AB Custom Theme
+Theme URI: https://github.com/imanasonline/ab-theme
+GitHub Theme URI: https://github.com/imanasonline/ab-theme
+Primary Branch: main
+Author: Muhammad Anas
+Author URI: https://github.com/imanasonline
+Description: Custom-built lightweight WordPress theme. No page builder, no third-party plugins required. Design tokens, reusable components and semantic HTML — built for speed, SEO and easy maintenance.
+Version: 0.2.3
+Requires at least: 6.0
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ab-theme
+*/
+
+/* ============================================================
+   DESIGN TOKENS
+   Poori site ke rang, fonts, sizes aur spacing yahin se
+   control hote hain. Ek value badlo — har jagah badal jayegi.
+   ============================================================ */
+:root {
+  /* Rang (Abdul Basit wali scheme — mockup se verified) */
+  --color-navy: #0a2540;        /* headings / gehra rang */
+  --color-navy-soft: #16324f;   /* dark sections ka dusra shade */
+  --color-body: #33475b;        /* aam text */
+  --color-muted: #5b6b7f;       /* halka text */
+  --color-blue: #2e6bff;        /* primary */
+  --color-green: #1fb981;       /* accent */
+  --color-green-dark: #12a150;  /* hover / gehra hara */
+  --color-border: #e3eaf3;      /* card borders */
+  --color-tint-blue: #eef4ff;   /* halka neela background */
+  --color-tint-green: #e6f9f1;  /* halka hara background */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f8fc;
+
+  /* Brand gradient (neela -> hara) */
+  --gradient-brand: linear-gradient(90deg, #2e6bff, #1fb981);
+
+  /* Fonts */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+  /* Type scale */
+  --fs-h1: clamp(2.3rem, 5vw, 3.6rem);
+  --fs-h2: clamp(1.9rem, 4vw, 2.7rem);
+  --fs-h3: 1.35rem;
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --lh-body: 1.65;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --section-pad: clamp(4rem, 9vw, 6.5rem);
+
+  /* Layout */
+  --container: 75rem; /* 1200px */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-card: 0 10px 30px rgba(10, 37, 64, 0.08);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-body);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-navy);
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-blue); }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   REUSABLE COMPONENTS (buniyadi)
+   ============================================================ */
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.btn-outline {
+  border-color: var(--color-border);
+  color: var(--color-navy);
+  background: #fff;
+}
+
+/* ============================================================
+   SITE HEADER — sticky patti: pehchan, menu, CTA
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Admin bar lagi ho to sticky header us ke neeche rahe */
+.admin-bar .site-header { top: 32px; }
+@media (max-width: 782px) {
+  .admin-bar .site-header { top: 46px; }
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.site-branding { margin-right: auto; }
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.site-branding .custom-logo {
+  display: block;
+  width: auto;
+  max-height: 44px;
+}
+
+.main-nav__list,
+.footer-nav__list {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav__list a {
+  font-weight: 600;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.main-nav__list a:hover { color: var(--color-blue); }
+
+.site-header__cta {
+  padding: 0.6rem 1.4rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .site-header__inner { flex-wrap: wrap; }
+  .main-nav { order: 3; width: 100%; }
+  .main-nav__list { flex-wrap: wrap; gap: var(--space-3); }
+}
+
+/* ============================================================
+   SITE FOOTER — gehra navy hissa: pehchan, menu, copyright
+   ============================================================ */
+.site-footer {
+  margin-top: var(--section-pad);
+  background: var(--color-navy);
+  color: #c9d6e4;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.site-footer__title {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.site-footer__tagline {
+  max-width: 22rem;
+  margin: 0;
+}
+
+.footer-nav__list a {
+  font-weight: 500;
+  color: #c9d6e4;
+  text-decoration: none;
+}
+
+.footer-nav__list a:hover { color: #fff; }
+
+.site-footer__bar {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: var(--fs-small);
+  text-align: center;
+}
